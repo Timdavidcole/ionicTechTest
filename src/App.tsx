@@ -2,31 +2,19 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
-  IonIcon,
   IonLabel,
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs,
-  IonButtons,
-  IonMenuButton
+  IonTabs
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { apps, flash, send } from "ionicons/icons";
 import Missions from "./pages/Missions";
 import Notes from "./pages/Notes";
 import Requests from "./pages/Requests";
 import Details from "./pages/Details";
-import Menu from "./pages/Menu";
-import {
-  IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonList,
-  IonItem
-} from "@ionic/react";
+import Header from "./pages/Header";
+import { IonContent } from "@ionic/react";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -49,14 +37,7 @@ import "./theme/variables.css";
 
 const App: React.FC = () => (
   <IonApp>
-    <IonHeader>
-      <IonToolbar color="primary">
-        <IonButtons slot="start">
-          <IonIcon size="large" name="menu"></IonIcon>
-        </IonButtons>
-        <IonTitle>LOGO</IonTitle>
-      </IonToolbar>
-    </IonHeader>
+    <Header />
     <IonContent>
       <IonReactRouter>
         <IonTabs>
@@ -72,7 +53,7 @@ const App: React.FC = () => (
             </IonTabButton>
           </IonTabBar>
           <IonRouterOutlet>
-            <Route path="/menu" component={Menu} exact={true} />
+            <Route path="/menu" component={Header} exact={true} />
             <Route path="/missions" component={Missions} exact={true} />
             <Route path="/notes" component={Notes} exact={true} />
             <Route path="/notes/details" component={Details} />
